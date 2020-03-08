@@ -1,0 +1,48 @@
+<html>
+<head>
+  <style>
+    th,td{
+      padding: 10px;
+      font-size: 20px;
+    }
+    pre{
+      border:black 2px solid;
+    }
+  </style>
+  </head>
+<body bgcolor="grey">
+      
+      <form action = "http://127.0.0.1:8081/file" method = "Post" enctype="multipart/form-data">
+        <center><h1>File Chunker</h1>
+        <table>
+          <tr>
+            <td>File to be Chunked</td><td><input type="file" id="fileInput" name="file"></td></tr>
+            <tr><td>
+            ChunkSize:</td><td><input type="number" id="size" name="size" required></td></tr>
+            <tr><td>
+            Key:</td><td><input type="password" id="key" name="key" autocomplete="off" required></td></tr>
+            <tr><td>
+            FileName:</td><td><input type="text" id="name" name="name" autocomplete="off" required></td></tr>
+            <tr><td><center><input type="submit" value="Upload To Chunk"></center></td></tr>
+          </table></center>
+    </form>
+    <center><a href="/show">Merge Chunks</a></center>
+<pre id="fileDisplayArea"></pre>
+<script>
+        window.onload = function() {
+        var fileInput = document.getElementById('fileInput');
+        var fileDisplayArea = document.getElementById('fileDisplayArea');
+        fileInput.addEventListener('change', function(e) {
+            var file = fileInput.files[0]; {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+               fileDisplayArea.innerText = reader.result;
+                }
+                reader.readAsText(file);    
+      
+        }
+        });
+        }
+</script>
+</body>
+</html>

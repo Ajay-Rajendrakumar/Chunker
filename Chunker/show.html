@@ -1,0 +1,29 @@
+<html>
+<head>
+  <style>
+    th,td{
+      padding: 10px;
+      font-size: 20px;
+    }
+    pre{
+      border:black 2px solid;
+    }
+  </style>
+  </head>
+<body bgcolor="grey">
+      
+      <form action = "http://127.0.0.1:8081/merge" method = "Post" enctype="multipart/form-data">
+        <center><h1>Chunk Merger</h1>
+        <div><table><tr><td>
+            Select a Key file: </td><td>
+            <input type="file" id="fileInput" name="file"></td></tr>
+            <tr><td>Key:</td><td><input type="password" id="key" name="key" autocomplete="off" required></td></tr>
+            <tr><td>FileName:</td><td><input type="text" id="name" name="name" autocomplete="off" required></td></tr>
+            <tr><td><center><input type="submit" value="Merge Chunks"></center></td></tr>
+        </table>
+        </div>
+        </center>
+
+    </form>
+</body>
+</html>
